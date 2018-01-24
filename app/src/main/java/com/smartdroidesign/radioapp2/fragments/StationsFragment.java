@@ -1,6 +1,7 @@
 package com.smartdroidesign.radioapp2.fragments;
 
 
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.smartdroidesign.radioapp2.R;
 import com.smartdroidesign.radioapp2.adapters.StationsAdapter;
+import com.smartdroidesign.radioapp2.data.DataService;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,14 +20,19 @@ import com.smartdroidesign.radioapp2.adapters.StationsAdapter;
  * create an instance of this fragment.
  */
 public class StationsFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+
+    private static final String ARG_STATION_TYPE = "param1";
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    public static final int STATION_TYPE_FEATURED = 0;
+    public static final int STATION_TYPE_RECENT = 1;
+    public static final int STATION_TYPE_PARTY= 2;
+
+    private int stationType;
 
 
     public StationsFragment() {
@@ -36,16 +43,14 @@ public class StationsFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment StationsFragment.
+     * @param stationType The type of the station
+
      */
     // TODO: Rename and change types and number of parameters
-    public static StationsFragment newInstance(String param1, String param2) {
+    public static StationsFragment newInstance(int stationType) {
         StationsFragment fragment = new StationsFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putInt(ARG_STATION_TYPE, stationType);
         fragment.setArguments(args);
         return fragment;
     }
@@ -54,8 +59,7 @@ public class StationsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            stationType = getArguments().getInt(ARG_STATION_TYPE);
         }
     }
 
@@ -67,7 +71,24 @@ public class StationsFragment extends Fragment {
         RecyclerView recyclerView = v.findViewById(R.id.recycler_stations);
         recyclerView.setHasFixedSize(true);
 
-        StationsAdapter adapter = new StationsAdapter();
+        StationsAdapter adapter;
+
+        if(stationType == STATION_TYPE_FEATURED){
+            adapter = new StationsAdapter(DataService.getInstance().getFeaturedStations());
+
+
+        } else if (stationType == STATION_TYPE_RECENT){
+            adapter = new StationsAdapter(DataService.getInstance().getRecentStations());
+
+
+        } else {
+            adapter = new StationsAdapter(DataService.getInstance().getPartyStations());
+
+
+        }
+
+        recyclerView.addItemDecoration(new HorizontalSpaceItemDecorator(10));
+
         recyclerView.setAdapter(adapter);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
@@ -77,4 +98,19 @@ public class StationsFragment extends Fragment {
         return v;
     }
 
+}
+
+class HorizontalSpaceItemDecorator extends RecyclerView.ItemDecoration{
+
+    private final int spacer;
+
+    public HorizontalSpaceItemDecorator(int spacer) {
+        this.spacer = spacer;
+    }
+
+    @Override
+    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+        super.getItemOffsets(outRect, view, parent, state);
+        outRect.right = spacer;
+    }
 }

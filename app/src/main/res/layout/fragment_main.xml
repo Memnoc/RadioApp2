@@ -31,9 +31,32 @@
                 android:textSize="18dp" />
 
             <FrameLayout
+                android:id="@+id/container_top_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:text="It's Friday evening"
+                android:textColor="@android:color/black"
+                android:textSize="25dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="8dp"
+                android:text="play somethign for..."
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="18dp" />
+
+            <FrameLayout
                 android:id="@+id/container_middle_row"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
             </FrameLayout>
 
             <TextView
@@ -54,29 +77,6 @@
 
             <FrameLayout
                 android:id="@+id/container_bottom_row"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </FrameLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="8dp"
-                android:text="It's Friday evening"
-                android:textColor="@android:color/black"
-                android:textSize="25dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="8dp"
-                android:text="play somethign for..."
-                android:textColor="@color/cardview_dark_background"
-                android:textSize="18dp" />
-
-            <FrameLayout
-                android:id="@+id/container_top_row"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
