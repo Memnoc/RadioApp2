@@ -88,7 +88,6 @@ public class StationsFragment extends Fragment {
         }
 
         recyclerView.addItemDecoration(new HorizontalSpaceItemDecorator(10));
-
         recyclerView.setAdapter(adapter);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());

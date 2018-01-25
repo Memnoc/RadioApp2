@@ -4,6 +4,7 @@ package com.smartdroidesign.radioapp2.fragments;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,10 +63,15 @@ public class MainFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_main, container, false);
 
+        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+
+
         FragmentManager fm = getActivity().getSupportFragmentManager();
         StationsFragment stationsFragment1;
         StationsFragment stationsFragment2;
         StationsFragment stationsFragment3;
+
+
 
         stationsFragment1 = StationsFragment.newInstance(StationsFragment.STATION_TYPE_FEATURED);
         fm.beginTransaction().add(R.id.container_top_row, stationsFragment1).commit();
@@ -75,6 +81,7 @@ public class MainFragment extends Fragment {
 
         stationsFragment3 = StationsFragment.newInstance(StationsFragment.STATION_TYPE_PARTY);
         fm.beginTransaction().add(R.id.container_bottom_row, stationsFragment3).commit();
+
 
 
         return v;

@@ -5,7 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.smartdroidesign.radioapp2.R;
-import com.smartdroidesign.radioapp2.fragments.DetailsFragment;
+import com.smartdroidesign.radioapp2.fragments.MainPlaylistFragment;
+import com.smartdroidesign.radioapp2.fragments.PlaylistFragment;
 import com.smartdroidesign.radioapp2.fragments.MainFragment;
 import com.smartdroidesign.radioapp2.model.Station;
 
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void loadDetailScreen(Station selectedStation){
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container_main, new DetailsFragment())
+                .replace(R.id.container_main, new MainPlaylistFragment())
                 .addToBackStack(null)
                 .commit();
 
