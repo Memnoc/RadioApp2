@@ -23,6 +23,10 @@ public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistViewHolder> {
         this.playlists = playlists;
     }
 
+    public PlaylistAdapter(){
+
+    }
+
     @Override
     public PlaylistViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
@@ -32,7 +36,8 @@ public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistViewHolder> {
 
     @Override
     public void onBindViewHolder(PlaylistViewHolder holder, int position) {
-        Playlist playlist = playlists.get(position);
+        final Playlist playlist = playlists.get(position);
+        holder.updatePlaylistUI(playlist);
 
     }
 

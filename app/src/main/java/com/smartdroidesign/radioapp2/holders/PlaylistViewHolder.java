@@ -15,22 +15,26 @@ import com.smartdroidesign.radioapp2.model.Playlist;
 
 public class PlaylistViewHolder extends RecyclerView.ViewHolder {
 
-    private ImageView mainImage;
-    private TextView titleTextView;
+    private ImageView mainPlaylistImage;
+    private TextView playlistTitleTextView;
+    private TextView playListSubtitle;
 
     public PlaylistViewHolder(View itemView) {
         super(itemView);
 
-        this.mainImage = (ImageView)itemView.findViewById(R.id.main_playlist_image);
-        this.titleTextView = (TextView)itemView.findViewById(R.id.main_playlist_text);
+        this.mainPlaylistImage = itemView.findViewById(R.id.main_playlist_image);
+        this.mainPlaylistImage.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.playlistTitleTextView = itemView.findViewById(R.id.main_playlist_text);
+        this.playListSubtitle = itemView.findViewById(R.id.main_playlist_sub_text);
     }
 
     public void updatePlaylistUI(Playlist playlist){
-        String uri  =playlist.getImgUri();
-        int resource = mainImage.getResources().getIdentifier(uri,null, mainImage.getContext().getPackageName());
-        mainImage.setImageResource(resource);
+        String uri = playlist.getImgUri();
+        int resource = mainPlaylistImage.getResources().getIdentifier(uri,null, mainPlaylistImage.getContext().getPackageName());
+        mainPlaylistImage.setImageResource(resource);
 
-        titleTextView.setText(playlist.getPlaylistTitle());
+        playlistTitleTextView.setText(playlist.getPlaylistTitle());
+        playListSubtitle.setText(playlist.getPlaylistSubTitle());
 
     }
 }

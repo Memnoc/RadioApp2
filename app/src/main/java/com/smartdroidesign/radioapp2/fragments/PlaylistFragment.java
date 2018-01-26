@@ -47,7 +47,7 @@ public class PlaylistFragment extends Fragment {
     public static PlaylistFragment newInstance(int playlistType) {
         PlaylistFragment fragment = new PlaylistFragment();
         Bundle args = new Bundle();
-        args.putInt("", playlistType);
+        args.putInt(ARG_PLAYLIST_TYPE, playlistType);
         fragment.setArguments(args);
         return fragment;
     }

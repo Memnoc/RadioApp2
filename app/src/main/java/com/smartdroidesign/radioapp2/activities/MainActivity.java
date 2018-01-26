@@ -6,8 +6,8 @@ import android.os.Bundle;
 
 import com.smartdroidesign.radioapp2.R;
 import com.smartdroidesign.radioapp2.fragments.MainPlaylistFragment;
-import com.smartdroidesign.radioapp2.fragments.PlaylistFragment;
 import com.smartdroidesign.radioapp2.fragments.MainFragment;
+import com.smartdroidesign.radioapp2.fragments.PlaylistFragment;
 import com.smartdroidesign.radioapp2.model.Station;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         MainActivity.setMainActivity(this);
+        this.setTitle("Tune In");
 
         FragmentManager fm = getSupportFragmentManager();
         MainFragment mainFragment = (MainFragment)fm.findFragmentById(R.id.container_main);

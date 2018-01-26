@@ -6,12 +6,14 @@ package com.smartdroidesign.radioapp2.model;
 
 public class Playlist {
 
-    final String DRAWABLE = "drawable/";
+    final private String DRAWABLE = "drawable/";
     private String playlistTitle;
+    private String playlistSubTitle;
     private String imgUri;
 
-    public Playlist(String playlistTitle, String imgUri) {
+    public Playlist(String playlistTitle, String playlistSubTitle, String imgUri) {
         this.playlistTitle = playlistTitle;
+        this.playlistSubTitle = playlistSubTitle;
         this.imgUri = imgUri;
     }
 
@@ -21,6 +23,10 @@ public class Playlist {
 
     public String getPlaylistTitle() {
         return playlistTitle;
+    }
+
+    public String getPlaylistSubTitle(){
+        return playlistSubTitle;
     }
 
     public String getImgUri() {

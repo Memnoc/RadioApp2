@@ -19,21 +19,26 @@ public class DataServicePlaylist {
     }
 
     public ArrayList<Playlist> getFeaturedPlaylists(){
+
         ArrayList<Playlist> plist = new ArrayList<>();
-        plist.add(new Playlist("International Playlist","flightmosaic"));
-        plist.add(new Playlist("Weekly Radar","radarimage"));
-        plist.add(new Playlist("Party Rock","rockimage"));
+        plist.add(new Playlist("International Playlist", "Celebrate music from around the world","flightmosaic"));
 
         return plist;
     }
 
     public ArrayList<Playlist> getRecentPlaylists(){
+
         ArrayList<Playlist> plist = new ArrayList<>();
+        plist.add(new Playlist("Rock Playlist", "This is rock n' roll","radarimage"));
+
         return plist;
     }
 
     public ArrayList<Playlist> getPartyPlaylists(){
+
         ArrayList<Playlist> plist = new ArrayList<>();
+        plist.add(new Playlist("International Playlist", "Celebrate music from around the world","flightmosaic"));
+
         return plist;
     }
 }
