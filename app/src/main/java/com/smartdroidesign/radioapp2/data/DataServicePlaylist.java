@@ -11,6 +11,7 @@ import java.util.ArrayList;
 public class DataServicePlaylist {
     private static final DataServicePlaylist ourInstance = new DataServicePlaylist();
 
+
     public static DataServicePlaylist getInstance() {
         return ourInstance;
     }

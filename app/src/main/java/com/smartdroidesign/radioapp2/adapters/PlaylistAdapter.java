@@ -40,6 +40,14 @@ public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistViewHolder> {
         final Playlist playlist = playlists.get(position);
         holder.updatePlaylistUI(playlist);
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Load the details screen
+                MainActivity.getMainActivity().loadSongs(playlist);
+            }
+        });
+
 
     }
 

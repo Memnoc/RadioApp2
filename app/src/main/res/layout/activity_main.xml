@@ -13,6 +13,63 @@
         android:layout_height="wrap_content">
     </RelativeLayout>
 
+    <LinearLayout
+        android:id="@+id/playerLinear"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="false"
+        android:background="@color/bottom_bg"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/tunes" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:text="Time To Rock (Every Day)"
+                android:textColor="#000"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:paddingLeft="5dp"
+                android:text="The Rock Tunes Funny Time Family Brand"
+                android:textColor="@color/sub_title"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/playBtn"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@color/bottom_bg"
+            android:forceHasOverlappingRendering="false"
+            android:scaleType="centerInside"
+            android:tag="10"
+            app:srcCompat="@drawable/playbutton" />
+    </LinearLayout>
+
 
 
 </android.support.constraint.ConstraintLayout>

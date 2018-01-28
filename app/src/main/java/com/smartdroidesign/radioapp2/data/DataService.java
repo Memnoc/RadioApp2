@@ -11,6 +11,15 @@ import java.util.ArrayList;
 public class DataService {
     private static final DataService ourInstance = new DataService();
 
+    public static final String[] titles = {
+            "Flight Plan (Tunes for Travel)",
+            "Two-Wheeling' (Biking Playlist)",
+            "Kids Jams (Music for Children)",
+            "Vinyl Music",
+            "Social Music",
+            "Key Music"
+    };
+
     public static DataService getInstance() {
         return ourInstance;
     }

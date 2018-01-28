@@ -4,22 +4,18 @@ package com.smartdroidesign.radioapp2.fragments;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
 
 import com.smartdroidesign.radioapp2.R;
-import com.smartdroidesign.radioapp2.activities.MainActivity;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link MainPlaylistFragment#newInstance} factory method to
+ * Use the {@link MainSongsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MainPlaylistFragment extends Fragment {
+public class MainSongsFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -30,7 +26,7 @@ public class MainPlaylistFragment extends Fragment {
     private String mParam2;
 
 
-    public MainPlaylistFragment() {
+    public MainSongsFragment() {
         // Required empty public constructor
     }
 
@@ -40,11 +36,11 @@ public class MainPlaylistFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment MainPlaylistFragment.
+     * @return A new instance of fragment MainSongsFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static MainPlaylistFragment newInstance(String param1, String param2) {
-        MainPlaylistFragment fragment = new MainPlaylistFragment();
+    public static MainSongsFragment newInstance(String param1, String param2) {
+        MainSongsFragment fragment = new MainSongsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,40 +61,13 @@ public class MainPlaylistFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
-       // View layout = inflater.inflate(R.layout.fragment_main, container, false);
-
-        View v = inflater.inflate(R.layout.fragment_main_playlist, container, false);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
-
-
-        Button backBtn = v.findViewById(R.id.backBtn);
-
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MainActivity.getMainActivity().loadMainScreen();
-            }
-        });
-
-
-
+        View v = inflater.inflate(R.layout.fragment_main_songs, container, false);
 
         FragmentManager fm = getActivity().getSupportFragmentManager();
-        PlaylistFragment playlistFragment1;
-        PlaylistFragment playlistFragment2;
-        PlaylistFragment playlistFragment3;
+        SongsFragment songsFragment;
 
-
-
-        playlistFragment1 = PlaylistFragment.newInstance(PlaylistFragment.PLAYLIST_TYPE_FEATURED);
-        fm.beginTransaction().add(R.id.playlist_container_one, playlistFragment1).commit();
-
-        playlistFragment2 = PlaylistFragment.newInstance(PlaylistFragment.PLAYLIST_TYPE_RECENT);
-        fm.beginTransaction().add(R.id.playlist_container_two, playlistFragment2).commit();
-
-        playlistFragment3 = PlaylistFragment.newInstance(PlaylistFragment.PLAYLIST_TYPE_PARTY);
-        fm.beginTransaction().add(R.id.playlist_container_three, playlistFragment3).commit();
+        songsFragment = SongsFragment.newInstance("bla", "bla");
+        fm.beginTransaction().add(R.id.container_songs, songsFragment).commit();
 
         return v;
     }
