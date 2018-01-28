@@ -8,8 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.smartdroidesign.radioapp2.R;
+import com.smartdroidesign.radioapp2.activities.MainActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,10 +65,21 @@ public class MainPlaylistFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View layout = inflater.inflate(R.layout.fragment_main, container, false);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+
+       // View layout = inflater.inflate(R.layout.fragment_main, container, false);
 
         View v = inflater.inflate(R.layout.fragment_main_playlist, container, false);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+
+
+        Button backBtn = v.findViewById(R.id.backBtn);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.getMainActivity().loadMainScreen();
+            }
+        });
 
         FragmentManager fm = getActivity().getSupportFragmentManager();
         PlaylistFragment playlistFragment1;

@@ -8,8 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.smartdroidesign.radioapp2.R;
+import com.smartdroidesign.radioapp2.activities.MainActivity;
 import com.smartdroidesign.radioapp2.adapters.PlaylistAdapter;
 import com.smartdroidesign.radioapp2.data.DataServicePlaylist;
 
@@ -18,7 +20,7 @@ import com.smartdroidesign.radioapp2.data.DataServicePlaylist;
  * Use the {@link PlaylistFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PlaylistFragment extends Fragment {
+public class PlaylistFragment extends Fragment implements View.OnClickListener {
 
     private static final String ARG_PLAYLIST_TYPE = "playlistType";
     private static final String ARG_PARAM2 = "param2";
@@ -30,7 +32,6 @@ public class PlaylistFragment extends Fragment {
     public static final int PLAYLIST_TYPE_PARTY= 2;
 
     public static int playlistType;
-
 
 
     public PlaylistFragment() {
@@ -65,6 +66,7 @@ public class PlaylistFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_playlist, container, false);
 
+
         RecyclerView recyclerView = v.findViewById(R.id.recycler_playlist_stations);
         recyclerView.setHasFixedSize(true);
 
@@ -87,5 +89,9 @@ public class PlaylistFragment extends Fragment {
         return v;
     }
 
+    @Override
+    public void onClick(View v) {
+
+    }
 }
 

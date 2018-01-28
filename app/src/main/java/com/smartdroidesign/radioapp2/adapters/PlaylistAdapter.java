@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.smartdroidesign.radioapp2.R;
+import com.smartdroidesign.radioapp2.activities.MainActivity;
 import com.smartdroidesign.radioapp2.holders.PlaylistViewHolder;
 import com.smartdroidesign.radioapp2.model.Playlist;
 
@@ -38,6 +39,7 @@ public class PlaylistAdapter extends RecyclerView.Adapter<PlaylistViewHolder> {
     public void onBindViewHolder(PlaylistViewHolder holder, int position) {
         final Playlist playlist = playlists.get(position);
         holder.updatePlaylistUI(playlist);
+
 
     }
 

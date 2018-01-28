@@ -8,6 +8,7 @@ import com.smartdroidesign.radioapp2.R;
 import com.smartdroidesign.radioapp2.fragments.MainPlaylistFragment;
 import com.smartdroidesign.radioapp2.fragments.MainFragment;
 import com.smartdroidesign.radioapp2.fragments.PlaylistFragment;
+import com.smartdroidesign.radioapp2.model.Playlist;
 import com.smartdroidesign.radioapp2.model.Station;
 
 public class MainActivity extends AppCompatActivity {
@@ -49,4 +50,14 @@ public class MainActivity extends AppCompatActivity {
                 .commit();
 
     }
+
+    public void loadMainScreen(){
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container_main, MainFragment.newInstance("main", "fragment"))
+                .addToBackStack(null)
+                .commit();
+
+    }
+
 }
